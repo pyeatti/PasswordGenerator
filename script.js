@@ -16,7 +16,11 @@ alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "
 // var numSplit = number.toString(10).split("")
 number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
-
+prompt("How many characters would you like your Password to be?")
+confirm("Would you lowercase letters in your Password?")
+confirm("Would you like UPPERCASE letters in your Password?")
+confirm("Would you like speci@! characters in your Password?")
+confirm("Would you like numbers in your Password?")
 
 
 
