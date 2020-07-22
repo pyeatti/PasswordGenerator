@@ -1,16 +1,28 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+// alphabet = "abcdefghijklmnopqrstuvwxyz"
+// var alphaSplit = alphabet.split("")
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-number = "0123456789"
+// var characterSplit = specialCharacters.split("")
+specialCharacters = ["!", "@", "#", "$", "$", "$", "%", "%", "^", "&", "*", "(", ")"]
 
-specialCharacters = "!@#$$$%%^&*()"
 
-var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+// var alphaUpperSplit = alphabet.toUpperCase().split("")
+alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-var alphaUpper = alphabet.toUpperCase().split("")
-var characterSplit = specialCharacters.split("")
+
+// var numSplit = number.toString(10).split("")
+number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+
+
+
+
+
+
+
 
 // Write password to the #password input
 function writePassword() {
