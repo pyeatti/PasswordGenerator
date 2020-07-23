@@ -16,15 +16,59 @@ alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "
 // var numSplit = number.toString(10).split("")
 number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
-prompt("How many characters would you like your Password to be?")
-confirm("Would you lowercase letters in your Password?")
-confirm("Would you like UPPERCASE letters in your Password?")
-confirm("Would you like speci@! characters in your Password?")
-confirm("Would you like numbers in your Password?")
+
+passwordLength = prompt("How many characters would you like your Password to be?")
+
+
+
+while (isNaN(passwordLength) === true || passwordLength > 128 || passwordLength < 8) {
+
+  if (isNaN(passwordLength) === true) {
+  
+    alert("You did not input a number")
+    passwordLength = prompt("How many characters would you like your Password to be?")
+  
+  }
+
+  
+  else if (passwordLength > 128) {
+      alert("You password is too long! Your password must be between 8 and 128 characters")
+      
+      passwordLength = prompt("How many characters would you like your Password to be?")
+  
+  }
+
+  else if (passwordLength < 8) {
+
+    alert("Your password is too short! Your password must be between 8 and 128 characters")
+      
+      passwordLength = prompt("How many characters would you like your Password to be?")
+
+  }
+}
 
 
 
 
+
+// alert(passwordLength)
+
+
+lowercase = confirm("Would you lowercase letters in your Password? OK for YES, CANCEL for NO")
+
+// alert(lowercase)
+
+uppercase = confirm("Would you like uppercase letters in your Password? OK for YES, CANCEL for NO")
+
+// alert(uppercase)
+
+specChar = confirm("Would you like special characters in your Password?  OK for YES, CANCEL for NO")
+
+// alert(specChar)
+
+numbers = confirm("Would you like numbers in your Password? OK for YES, CANCEL for NO")
+
+// alert(numbers)
 
 
 
@@ -37,9 +81,14 @@ function writePassword() {
 
 }
 
+
+writePassword(passwordLength, alphabet, specialCharacters, alphaUpper, number);
+
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
 
-// Prompt, Conditional Character, Condit
+// Prompt, Conditional Character, Conditz
