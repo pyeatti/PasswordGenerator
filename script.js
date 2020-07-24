@@ -1,142 +1,101 @@
 // Assignment Code
+
 var generateBtn = document.querySelector("#generate");
+var passwordText = document.querySelector("#password");
 
-alphabetLowerCase = "abcdefghijklmnopqrstuvwxyz"
-let alphabetLowerSplit = alphabetLowerCase.split("")
-alphabetLowerSplit = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+var allCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()1234567890"
+var alphabetUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var alphabetLowerCase = "abcdefghijklmnopqrstuvwxyz"
+var digits = "1234567890"
+var specialCharacters = "!@#$%^&*()"
 
-let alaphbetUpperSplit = alphabetLowerCase.toUpperCase().split("")
-alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-
-specialCharacters = "!@#$%^&*()"
-let specialCharacterSplit = specialCharacters.split("")
-specialCharacters = ["!", "@", "#", "$", "$", "$", "%", "%", "^", "&", "*", "(", ")"]
-
-var numSplit = number.toString(10).split("")
-
-number = "1234567890"
-let numberSplit = number.split("")
-numberSplit = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-
-let allCharacters
-
-
-let password = ""
-
-// let passwordLength = prompt("How many characters would you like your Password to be?")
-
-for (let i = 0; i < passwordLength; i++) {
-    let randomIndex = Math.floor(Math.random() * alphabetLowerCase.length);
-    password = alphabetLowerCase[randomIndex]
-    console.log(password)
-    
-}
-
-
-
-
-let passwordLength = prompt("How many characters would you like your Password to be?")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// passwordLength = prompt("How many characters would you like your Password to be?")
-
-// for (let index = 0; index < userInput; index++) {
-    
-//   // returns random number between 0-1
-//   let randomTinyNumber = Math.random()
-
-//   // returns random number between 0-25
-//   let randomAlphabetIndex = randomTinyNumber*alphabet.length
-
-//   let randomLetter = alphabet[randomAlphabetIndex]
-//   console.log(randomLetter)
-// }
-
-
-
-while (isNaN(passwordLength) === true || passwordLength > 128 || passwordLength < 8) {
-
-  if (isNaN(passwordLength) === true) {
-  
-    alert("You did not input a number")
-    passwordLength = prompt("How many characters would you like your Password to be?")
-  
-  }
-
-  
-  else if (passwordLength > 128) {
-      alert("You password is too long! Your password must be between 8 and 128 characters")
-      
-      passwordLength = prompt("How many characters would you like your Password to be?")
-  
-  }
-
-  else if (passwordLength < 8) {
-
-    alert("Your password is too short! Your password must be between 8 and 128 characters")
-      
-      passwordLength = prompt("How many characters would you like your Password to be?")
-
-  }
-}
-
-
-
-
-
-
-
-
-confirm("Would you lowercase letters in your Password? OK for YES, CANCEL for NO")
-
-
-
-confirm("Would you like uppercase letters in your Password? OK for YES, CANCEL for NO")
-
-
-
-confirm("Would you like special characters in your Password?  OK for YES, CANCEL for NO")
-
-
-
-confirm("Would you like numbers in your Password? OK for YES, CANCEL for NO")
-
-
-
-
+let customArray = "";
 
 // Write password to the #password input
 function writePassword() {
-
-  prompt("How many characters would you like your Password to be?")
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-
-  // passwordText.value = password;
-
+  document.querySelector("#password").value = "";
+  generator(customArray);
+  
 }
 
+// 
+function generator(userPasswordAray) {
+  
+  // Has user input their desired password length!
+  // This loop prevents them from inputing things outside parameters like: "chicken, 1324235, or 2"
+  let passwordLength = parseInt(
+    prompt("How many characters should your password be?")
+    );
+    
+    while (isNaN(passwordLength) === true || passwordLength > 128 || passwordLength < 8) {
+      
+      if (isNaN(passwordLength) === true) {
+        
+        alert("You did not input a number")
+        passwordLength = prompt("How many characters would you like your Password to be?")
+        
+      }
+      
+      else if (passwordLength > 128) {
+        
+        alert("You password is too long! Your password must be between 8 and 128 characters")
+        
+        passwordLength = prompt("How many characters would you like your Password to be?")
+        
+      }
+      
+      else if (passwordLength < 8) {
+        
+        alert("Your password is too short! Your password must be between 8 and 128 characters")
+        
+        passwordLength = prompt("How many characters would you like your Password to be?")
+        
+      }
 
-// writePassword(passwordLength, alphabet, specialCharacters, alphaUpper, number);
-
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
-
-// Prompt, Conditional Character, Conditz
+    
+    }
+    
+    // these confirms ask WHICH TYPE of characters they want in their password
+    let lowerSelect = confirm("Would you lowercase letters in your Password? OK for YES, CANCEL for NO")
+    
+    if (lowerSelect === true) {
+      userPasswordAray += alphabetLowerCase
+    }
+    
+    let upperSelect = confirm("Would you like uppercase letters in your Password? OK for YES, CANCEL for NO")
+    
+    
+    if (upperSelect === true) {
+      userPasswordAray += alphabetUpperCase
+    }
+    
+    let specialSelect = confirm("Would you like special characters in your Password?  OK for YES, CANCEL for NO")
+    
+    if (specialSelect === true) {
+      userPasswordAray += specialCharacters
+    }
+    
+    let numberSelect = confirm("Would you like numbers in your Password? OK for YES, CANCEL for NO")
+    
+    if (numberSelect === true) {
+      userPasswordAray += digits
+    }
+    
+    let password = "";
+    
+    // Selects random characters from the array
+    for (let i = 0; i < passwordLength; i++) {
+      let randomIndex = Math.floor(Math.random() * userPasswordAray.length);
+      password += userPasswordAray[randomIndex];
+    }
+    
+    passwordText.value = password;
+    
+  }
+  
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword)
+  
+  
+  
+  
