@@ -1,10 +1,10 @@
-# PasswordGenerator
+## PasswordGenerator
 
 ## Assignment
 The assignment was to create a password generator that first prompted the user to select how many characters they'd like to be in their password, followed by a series of confirms that asked what kind of characters (lower case letters, uppercase letter, numbers, or special characters).
 
 ## Deployed site
-http://github.com
+https://pyeatti.github.io/PasswordGenerator/
 
 
 ## Image Walkthrough
