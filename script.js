@@ -24,21 +24,21 @@ function generator(userPasswordAray) {
   // Has user input their desired password length!
   // This loop prevents them from inputing things outside parameters like: "chicken, 1324235, or 2"
   let passwordLength = parseInt(
-    prompt("How many characters should your password be?")
+    prompt("How many characters would you like your Password to be?")
     );
     
     while (isNaN(passwordLength) === true || passwordLength > 128 || passwordLength < 8) {
       
       if (isNaN(passwordLength) === true) {
         
-        alert("You did not input a number")
+        alert("You did not input a number between 8 and 128")
         passwordLength = prompt("How many characters would you like your Password to be?")
         
       }
       
       else if (passwordLength > 128) {
         
-        alert("You password is too long! Your password must be between 8 and 128 characters")
+        alert("Your password is too long! Your password must be between 8 and 128 characters")
         
         passwordLength = prompt("How many characters would you like your Password to be?")
         
